@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>外贸参展实务 · 展会选择与计划制定 · 德业科技线上工单</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 清晰科技感背景，高对比文字 */
+        body {
+            background: radial-gradient(circle at 20% 30%, #0b1c2a, #05131f);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.8rem;
+        }
+
+        .slide-container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(8, 20, 35, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(80, 150, 230, 0.3);
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 90vh;
+        }
+
+        .slide-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .slide-container::-webkit-scrollbar-track {
+            background: #142b3b;
+            border-radius: 8px;
+        }
+        .slide-container::-webkit-scrollbar-thumb {
+            background: #3a8fd6;
+            border-radius: 8px;
+        }
+
+        .inner-content {
+            padding: 1.8rem 2rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #9bc5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #d4e6ff;
+            border-top: 1px solid rgba(90, 150, 220, 0.5);
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-top: 0.6rem;
+            font-weight: 500;
+        }
+
+        .card {
+            background: rgba(12, 28, 45, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(70, 140, 210, 0.6);
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.4);
+            margin-bottom: 1.6rem;
+            overflow: hidden;
+        }
+        .card-header {
+            background: rgba(5, 20, 35, 0.8);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid rgba(60, 130, 210, 0.6);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .card-header h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #eef5ff;
+            margin: 0;
+        }
+        .card-header span {
+            font-size: 0.7rem;
+            color: #b8d4ff;
+        }
+        .card-body {
+            padding: 1.2rem 1.5rem;
+        }
+
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .dim-card {
+            background: rgba(5, 18, 30, 0.75);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            border: 1px solid rgba(80, 150, 230, 0.5);
+            transition: 0.2s;
+        }
+        .dim-card:hover {
+            border-color: #7ab7ff;
+            background: rgba(10, 30, 50, 0.85);
+        }
+        .dim-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            border-left: 3px solid #5ca0ff;
+            padding-left: 10px;
+            color: #eef5ff;
+        }
+        .option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 8px 0;
+        }
+        .checkbox-label, .radio-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(30, 65, 100, 0.7);
+            padding: 4px 12px;
+            border-radius: 32px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border: 1px solid rgba(100, 170, 255, 0.5);
+            color: #f0f6ff;
+        }
+        .checkbox-label:hover, .radio-label:hover {
+            background: #1f5280;
+            border-color: #9bc5ff;
+        }
+        .subgroup-title {
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin: 8px 0 4px;
+            color: #bbd4ff;
+        }
+
+        .score-feedback {
+            background: #0a2540dd;
+            border-radius: 1rem;
+            padding: 0.7rem 1.2rem;
+            margin-top: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border: 1px solid #5a9eff;
+        }
+        .score-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #eef5ff;
+        }
+
+        .btn {
+            background: linear-gradient(95deg, #2c6eb0, #1e4a76);
+            border: none;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.15s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .btn-secondary {
+            background: linear-gradient(95deg, #3a546d, #243b4f);
+        }
+        .btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.08);
+        }
+
+        .expo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 1rem;
+            overflow: hidden;
+            color: #f0f6ff;
+        }
+        .expo-table th, .expo-table td {
+            border: 1px solid rgba(80, 140, 200, 0.6);
+            padding: 8px 5px;
+            text-align: center;
+        }
+        .expo-table th {
+            background: #0a2740cc;
+            color: #e0f0ff;
+        }
+        .expo-name-input {
+            background: #0c1f2e;
+            border: 1px solid #2c6c9e;
+            border-radius: 24px;
+            padding: 4px 8px;
+            color: #ffffff;
+            width: 100%;
+            font-size: 0.7rem;
+        }
+        .score-input {
+            width: 55px;
+            background: #0a1825;
+            border: 1px solid #2c7ab0;
+            border-radius: 24px;
+            padding: 5px;
+            text-align: center;
+            color: white;
+            font-weight: 500;
+        }
+        .total-score {
+            background: #1a543b;
+            font-weight: 800;
+            color: #e2ffec;
+        }
+        
+        /* 修正文本框、下拉框文字颜色为白色，并确保标签文字为白色 */
+        textarea, input[type="text"], select {
+            background: #0c1f2e;
+            border: 1px solid #2c6e9e;
+            border-radius: 1rem;
+            padding: 8px 12px;
+            color: #ffffff !important;
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.8rem;
+        }
+        select option {
+            background: #0c1f2e;
+            color: #ffffff;
+        }
+        textarea::placeholder, input::placeholder {
+            color: #8aaac9;
+        }
+        /* 第三步中的标签文字颜色强制白色 */
+        .flex-1 label {
+            color: #ffffff !important;
+            font-weight: 500;
+        }
+        /* 额外确保任何其他可能标签颜色 */
+        label strong {
+            color: #ffffff;
+        }
+        
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .flex-1 { flex: 1; min-width: 160px; }
+
+        footer {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #9bb8e0;
+            margin-top: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .inner-content { padding: 1rem; }
+            .dimension-grid { gap: 0.8rem; }
+            .card-header h2 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+    <div class="inner-content">
+        <div class="hero">
+            <h1>外贸参展实务 · 智能工单</h1>
+            <div class="sub">企业调研与展会选择 | 德业科技 新能源</div>
+        </div>
+
+        <!-- 第一步：企业定位画像 -->
+        <div class="card">
+            <div class="card-header">
+                <h2>第一步 · 企业定位画像</h2>
+                <span>德业科技 | 四维评估</span>
+            </div>
+            <div class="card-body">
+                <div class="dimension-grid">
+                    <!-- 1. 企业性质 -->
+                    <div class="dim-card">
+                        <div class="dim-title">1. 企业性质</div>
+                        <div class="option-group" id="natureGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="上游"> 上游</label>
+                            <label class="checkbox-label"><input type="checkbox" value="中游"> 中游</label>
+                            <label class="checkbox-label"><input type="checkbox" value="下游"> 下游</label>
+                        </div>
+                    </div>
+                    <!-- 2. 产品类型 -->
+                    <div class="dim-card">
+                        <div class="dim-title">2. 产品类型</div>
+                        <div class="option-group" id="productGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="劳动密集型"> 劳动密集型</label>
+                            <label class="checkbox-label"><input type="checkbox" value="高附加值"> 高附加值</label>
+                            <label class="checkbox-label"><input type="checkbox" value="OEM"> OEM</label>
+                            <label class="checkbox-label"><input type="checkbox" value="ODM"> ODM</label>
+                            <label class="checkbox-label"><input type="checkbox" value="OBM"> OBM</label>
+                        </div>
+                    </div>
+                    <!-- 3. 市场定位 -->
+                    <div class="dim-card">
+                        <div class="dim-title">3. 市场定位</div>
+                        <div class="subgroup-title">客户类型（多选）</div>
+                        <div class="option-group" id="customerTypeGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="大型品牌采购方"> 大型品牌采购方</label>
+                            <label class="checkbox-label"><input type="checkbox" value="国际OEM品牌商"> 国际OEM品牌商</label>
+                            <label class="checkbox-label"><input type="checkbox" value="大型连锁零售商"> 大型连锁零售商</label>
+                            <label class="checkbox-label"><input type="checkbox" value="渠道分销型客户"> 渠道分销型客户</label>
+                            <label class="checkbox-label"><input type="checkbox" value="工商业园区终端用户"> 工商业园区终端用户</label>
+                            <label class="checkbox-label"><input type="checkbox" value="个人终端用户"> 个人终端用户</label>
+                            <label class="checkbox-label"><input type="checkbox" value="政府机构/公共项目"> 政府机构/公共项目</label>
+                            <label class="checkbox-label"><input type="checkbox" value="科研院校/研究机构"> 科研院校/研究机构</label>
+                        </div>
+                        <div class="subgroup-title">采购习惯（单选）</div>
+                        <div class="option-group" id="cycleGroup">
+                            <label class="radio-label"><input type="radio" name="purchaseCycle" value="无周期"> 无周期</label>
+                            <label class="radio-label"><input type="radio" name="purchaseCycle" value="周期性"> 周期性</label>
+                        </div>
+                        <div class="subgroup-title">采购批量（多选）</div>
+                        <div class="option-group" id="batchGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="小批量"> 小批量</label>
+                            <label class="checkbox-label"><input type="checkbox" value="大批量"> 大批量</label>
+                            <label class="checkbox-label"><input type="checkbox" value="一次性政府项目"> 一次性政府项目</label>
+                        </div>
+                        <div class="subgroup-title">采购考量点（多选）</div>
+                        <div class="option-group" id="decisionGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="价格"> 价格</label>
+                            <label class="checkbox-label"><input type="checkbox" value="交期"> 交期</label>
+                            <label class="checkbox-label"><input type="checkbox" value="认证"> 认证</label>
+                            <label class="checkbox-label"><input type="checkbox" value="售后"> 售后</label>
+                        </div>
+                    </div>
+                    <!-- 4. 参展目标 -->
+                    <div class="dim-card">
+                        <div class="dim-title">4. 参展目标</div>
+                        <div class="option-group" id="goalGroup">
+                            <label class="checkbox-label"><input type="checkbox" value="开拓新市场"> 开拓新市场</label>
+                            <label class="checkbox-label"><input type="checkbox" value="宣传品牌"> 宣传品牌</label>
+                            <label class="checkbox-label"><input type="checkbox" value="找供应链"> 找供应链</label>
+                            <label class="checkbox-label"><input type="checkbox" value="市场调研"> 市场调研</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="score-feedback" id="scoreFeedback">
+                    <span class="score-text">企业画像完整度评估 —— 未评测</span>
+                    <button class="btn" id="submitProfileBtn">提交并获取评分反馈</button>
+                </div>
+                <div id="feedbackDetail" style="margin-top: 6px; font-size: 0.7rem; color: #b8d4ff;"></div>
+            </div>
+        </div>
+
+        <!-- 第二步：展会评估（五个维度） -->
+        <div class="card">
+            <div class="card-header">
+                <h2>第二步 · 展会筛选评估</h2>
+                <span>新能源板块 | 五维打分制 (1-5分)</span>
+            </div>
+            <div class="card-body">
+                <p style="font-size:0.75rem; margin-bottom:0.8rem; color:#cce4ff;">结合企业定位，应用AI工具检索展会，填写展会名称并对每个维度打分。</p>
+                <table class="expo-table">
+                    <thead>
+                        <tr><th width="18%">评估维度</th><th width="27%">展会A</th><th width="27%">展会B</th><th width="28%">展会C</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>展会名称</td>
+                            <td><input type="text" class="expo-name-input" id="nameA"></td>
+                            <td><input type="text" class="expo-name-input" id="nameB"></td>
+                            <td><input type="text" class="expo-name-input" id="nameC"></td>
+                        </tr>
+                        <tr><td>时间</td>
+                            <td><input type="number" class="score-input" data-expo="A" data-dim="time" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="B" data-dim="time" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="C" data-dim="time" min="1" max="5" placeholder="1-5"></td>
+                        </tr>
+                        <tr><td>地点</td>
+                            <td><input type="number" class="score-input" data-expo="A" data-dim="location" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="B" data-dim="location" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="C" data-dim="location" min="1" max="5" placeholder="1-5"></td>
+                        </tr>
+                        <tr><td>价格</td>
+                            <td><input type="number" class="score-input" data-expo="A" data-dim="price" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="B" data-dim="price" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="C" data-dim="price" min="1" max="5" placeholder="1-5"></td>
+                        </tr>
+                        <tr><td>历史</td>
+                            <td><input type="number" class="score-input" data-expo="A" data-dim="history" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="B" data-dim="history" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="C" data-dim="history" min="1" max="5" placeholder="1-5"></td>
+                        </tr>
+                        <tr><td>行业</td>
+                            <td><input type="number" class="score-input" data-expo="A" data-dim="industry" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="B" data-dim="industry" min="1" max="5" placeholder="1-5"></td>
+                            <td><input type="number" class="score-input" data-expo="C" data-dim="industry" min="1" max="5" placeholder="1-5"></td>
+                        </tr>
+                        <tr style="background:rgba(30,80,110,0.5); font-weight:bold;">
+                            <td>总分（满分25）</td>
+                            <td id="totalA" class="total-score">—</td>
+                            <td id="totalB" class="total-score">—</td>
+                            <td id="totalC" class="total-score">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="display: flex; justify-content: flex-end; margin-top: 0.8rem;">
+                    <button class="btn btn-secondary" id="refreshScoresBtn">刷新总分</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三步：综合推荐与汇报（移除了优先保障维度） -->
+        <div class="card">
+            <div class="card-header">
+                <h2>第三步 · 综合推荐与汇报</h2>
+                <span>小组协作 · 4-5分钟展示</span>
+            </div>
+            <div class="card-body">
+                <div class="flex-row">
+                    <div class="flex-1">
+                        <label><strong>最终推荐展会</strong></label>
+                        <select id="finalChoice">
+                            <option value="">请选择推荐展会</option>
+                            <option value="A">展会A</option>
+                            <option value="B">展会B</option>
+                            <option value="C">展会C</option>
+                        </select>
+                    </div>
+                </div>
+                <label><strong>汇报核心内容摘要</strong></label>
+                <textarea id="reportReason" rows="3" placeholder="结合以上练习，准备3-4分钟的汇报，内容包括企业深度调研和展会推荐及理由"></textarea>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end; margin: 1rem 0 0.8rem;">
+                    <button class="btn" id="genPreviewBtn">生成汇报预览</button>
+                    <button class="btn btn-secondary" id="resetFormBtn">重置所有内容</button>
+                </div>
+                <div id="previewArea" style="background: rgba(0,0,0,0.5); border-radius: 1rem; padding: 0.8rem; border-left: 3px solid #5ca0ff; display: none;">
+                    <h3 style="font-size:0.9rem; margin-bottom:6px; color:#eef5ff;">汇报预览（可复制）</h3>
+                    <div id="previewText" style="white-space: pre-line; font-size: 0.75rem; color:#f0f6ff;"></div>
+                </div>
+                <div style="font-size:0.65rem; color:#bbd4ff; margin-top: 0.8rem;">
+                    小组分工建议：一人负责企业调研，一人负责展会信息收集及打分，一人负责汇报整合。
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<script>
+    // 正确答案库（基于文本要求）
+    const CORRECT = {
+        nature: ["上游", "中游"],
+        product: ["劳动密集型", "高附加值", "OEM", "ODM", "OBM"],
+        customerType: ["大型品牌采购方", "国际OEM品牌商", "渠道分销型客户", "工商业园区终端用户", "个人终端用户", "政府机构/公共项目"],
+        purchaseCycle: "周期性",
+        batch: ["大批量", "一次性政府项目"],
+        decision: ["价格", "交期", "认证", "售后"],
+        goals: ["开拓新市场", "宣传品牌", "找供应链", "市场调研"]
+    };
+
+    function getCheckedValues(groupId) {
+        const checks = document.querySelectorAll(`#${groupId} input[type="checkbox"]:checked`);
+        return Array.from(checks).map(cb => cb.value);
+    }
+    function getSelectedRadioValue(radioName) {
+        const selected = document.querySelector(`input[name="${radioName}"]:checked`);
+        return selected ? selected.value : null;
+    }
+
+    function computeProfileScore() {
+        let totalItems = 0, correctItems = 0;
+        // 企业性质
+        const selectedNature = getCheckedValues('natureGroup');
+        totalItems += CORRECT.nature.length;
+        correctItems += selectedNature.filter(v => CORRECT.nature.includes(v)).length;
+        // 产品类型
+        const selectedProduct = getCheckedValues('productGroup');
+        totalItems += CORRECT.product.length;
+        correctItems += selectedProduct.filter(v => CORRECT.product.includes(v)).length;
+        // 客户类型
+        const selectedCustomer = getCheckedValues('customerTypeGroup');
+        totalItems += CORRECT.customerType.length;
+        correctItems += selectedCustomer.filter(v => CORRECT.customerType.includes(v)).length;
+        // 周期
+        const cycle = getSelectedRadioValue('purchaseCycle');
+        totalItems += 1;
+        if (cycle === CORRECT.purchaseCycle) correctItems += 1;
+        // 批量
+        const selectedBatch = getCheckedValues('batchGroup');
+        totalItems += CORRECT.batch.length;
+        correctItems += selectedBatch.filter(v => CORRECT.batch.includes(v)).length;
+        // 考量点
+        const selectedDecision = getCheckedValues('decisionGroup');
+        totalItems += CORRECT.decision.length;
+        correctItems += selectedDecision.filter(v => CORRECT.decision.includes(v)).length;
+        // 参展目标
+        const selectedGoals = getCheckedValues('goalGroup');
+        totalItems += CORRECT.goals.length;
+        correctItems += selectedGoals.filter(v => CORRECT.goals.includes(v)).length;
+
+        const percent = totalItems === 0 ? 0 : (correctItems / totalItems) * 100;
+        return { score: Math.round(percent), correctItems, totalItems };
+    }
+
+    function submitFeedback() {
+        const { score, correctItems, totalItems } = computeProfileScore();
+        const feedbackDiv = document.getElementById('scoreFeedback');
+        const detailDiv = document.getElementById('feedbackDetail');
+        let gradeText = '';
+        if (score >= 90) gradeText = '卓越 · 完全符合德业科技战略画像';
+        else if (score >= 70) gradeText = '良好 · 接近企业真实定位，可再优化细节';
+        else if (score >= 50) gradeText = '中等 · 需加强对德业业务的理解';
+        else gradeText = '待提升 · 请参照德业新能源+家电双赛道再调研';
+        feedbackDiv.innerHTML = `
+            <span class="score-text">企业画像匹配度得分：${score}分 (${correctItems}/${totalItems} 精准项)</span>
+            <button class="btn" id="submitProfileBtn">重新评估</button>
+        `;
+        detailDiv.innerHTML = `${gradeText} — 评估维度：企业性质、产品类型、市场定位、参展目标。可再次调整选项后点击重新评估。`;
+        const newBtn = document.getElementById('submitProfileBtn');
+        if (newBtn) newBtn.addEventListener('click', submitFeedback);
+    }
+
+    function updateExpoScores() {
+        const inputs = document.querySelectorAll('.score-input');
+        let totals = { A: 0, B: 0, C: 0 };
+        let valid = { A: 0, B: 0, C: 0 };
+        inputs.forEach(inp => {
+            const expo = inp.getAttribute('data-expo');
+            let val = parseInt(inp.value);
+            if (!isNaN(val) && val >= 1 && val <= 5) {
+                if (expo === 'A') { totals.A += val; valid.A++; }
+                else if (expo === 'B') { totals.B += val; valid.B++; }
+                else if (expo === 'C') { totals.C += val; valid.C++; }
+            }
+        });
+        document.getElementById('totalA').innerText = (valid.A === 5) ? totals.A : '—';
+        document.getElementById('totalB').innerText = (valid.B === 5) ? totals.B : '—';
+        document.getElementById('totalC').innerText = (valid.C === 5) ? totals.C : '—';
+    }
+
+    function generatePreview() {
+        const names = {
+            A: document.getElementById('nameA').value.trim() || "展会A",
+            B: document.getElementById('nameB').value.trim() || "展会B",
+            C: document.getElementById('nameC').value.trim() || "展会C"
+        };
+        const scoreA = document.getElementById('totalA').innerText;
+        const scoreB = document.getElementById('totalB').innerText;
+        const scoreC = document.getElementById('totalC').innerText;
+        const finalChoice = document.getElementById('finalChoice').value;
+        let finalName = "未选择";
+        if (finalChoice === 'A') finalName = names.A;
+        else if (finalChoice === 'B') finalName = names.B;
+        else if (finalChoice === 'C') finalName = names.C;
+        const reason = document.getElementById('reportReason').value.trim() || "（请完善推荐理由）";
+        const { score } = computeProfileScore();
+        const profileDesc = score >= 70 ? "定位清晰，符合中上游+多产品线+全球客户" : "企业定位需进一步明确";
+        return `【企业画像综述】德业科技 · ${profileDesc} (匹配度${score}分)\n【展会评估】\n- ${names.A} 总分：${scoreA}\n- ${names.B} 总分：${scoreB}\n- ${names.C} 总分：${scoreC}\n【推荐展会】${finalName}\n【推荐理由】${reason}\n\n小组分工：一人负责企业画像，一人收集展会数据及打分，一人整合汇报。`;
+    }
+
+    function showPreview() {
+        const previewDiv = document.getElementById('previewArea');
+        document.getElementById('previewText').innerText = generatePreview();
+        previewDiv.style.display = 'block';
+        previewDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetEverything() {
+        document.querySelectorAll('.dim-card input[type="checkbox"], .dim-card input[type="radio"]').forEach(cb => {
+            if (cb.type === 'checkbox') cb.checked = false;
+            else if (cb.type === 'radio') cb.checked = false;
+        });
+        document.getElementById('nameA').value = '';
+        document.getElementById('nameB').value = '';
+        document.getElementById('nameC').value = '';
+        document.querySelectorAll('.score-input').forEach(inp => inp.value = '');
+        document.getElementById('finalChoice').value = '';
+        document.getElementById('reportReason').value = '';
+        const feedbackDiv = document.getElementById('scoreFeedback');
+        feedbackDiv.innerHTML = `<span class="score-text">企业画像完整度评估 —— 未评测</span><button class="btn" id="submitProfileBtn">提交并获取评分反馈</button>`;
+        document.getElementById('feedbackDetail').innerHTML = '';
+        const newBtn = document.getElementById('submitProfileBtn');
+        if (newBtn) newBtn.addEventListener('click', submitFeedback);
+        updateExpoScores();
+        document.getElementById('previewArea').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('submitProfileBtn').addEventListener('click', submitFeedback);
+        document.getElementById('refreshScoresBtn').addEventListener('click', updateExpoScores);
+        document.getElementById('genPreviewBtn').addEventListener('click', showPreview);
+        document.getElementById('resetFormBtn').addEventListener('click', resetEverything);
+        document.querySelectorAll('.score-input').forEach(inp => inp.addEventListener('input', updateExpoScores));
+        updateExpoScores();
+    });
+</script>
+</body>
+</html>
